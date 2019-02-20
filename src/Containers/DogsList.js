@@ -8,7 +8,7 @@ class DogList extends Component {
   }
 
   render() {
-    let dogCards = this.state.dogs.map(dog => <DogCard dog={dog}/>)
+    let dogCards = this.state.dogs.map(dog => <DogCard dog={dog} key={dog.id}/>)
     return <div className="dogContainer">{dogCards}</div>;
   }
 }

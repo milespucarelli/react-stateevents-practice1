@@ -5,16 +5,18 @@ class DogCard extends React.Component {
     clicked: false
   }
 
+  ruff = () => {
+    this.setState({clicked: !this.state.clicked})
+  }
+
   render() {
+    const {name, img} = this.props.dog
     return (
       <div>
-        <h2>{this.props.dog.name}</h2>
-        <img alt="" src={this.props.dog.img} />
-        <button onClick={() => this.setState({clicked: !this.state.clicked})}>Bark</button>
-        {this.state.clicked ?
-          <h1 className='bark'>RUFF</h1> :
-          null
-        }
+        <h2>{name}</h2>
+        <img alt="" src={img} />
+        <button onClick={this.ruff}>Bark</button>
+        {this.state.clicked && <h1 className='bark'>RUFF</h1>}
       </div>
     );
   }
